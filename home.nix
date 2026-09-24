@@ -8,7 +8,10 @@
     ./waybar.nix
     ./hyprland.nix
     ./dolphin.nix
-    
+    ./bat.nix
+    ./dunst.nix
+    ./fastfetch.nix
+    ./kitty.nix
 	];
 #  Home-Manager stuff
 	home.username = "asapz";
@@ -16,13 +19,23 @@
 	
 	home.stateVersion = "26.05";
 
+  programs.bash = {
+    enable = true;
+    shellAliases = {
+      nrs = "sudo nixos-rebuild switch";
+      ls = "ls -a --color=auto";
+      network = "nmtui";
+    };
+
+    initExtra = "fastfetch";
+  };
+
 	home.packages = with pkgs; [ 
 		htop
 		fastfetch
-		kitty
 		wofi
 		firefox
-	
+	  fastfetch
 	];
 	
 	programs.home-manager.enable = true;

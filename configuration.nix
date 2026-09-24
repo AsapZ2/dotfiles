@@ -8,6 +8,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix	
       ./greetd.nix
+      ./regreet.nix
     ];
   # Home Manager
  	 home-manager.useUserPackages = true;
@@ -17,15 +18,7 @@
 
 #  flakes
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
-# Greetd & ReGreet
-	services.displayManager.regreet = {
-		enable = true;
-		theme.name = "Adwaita";
-		font = {
-			name = "Cantarell";
-			size = 16;
-		};
-	};
+
 # Hyprland
 	programs.hyprland.enable = true;
 

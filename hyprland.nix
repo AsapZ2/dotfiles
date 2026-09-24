@@ -11,6 +11,22 @@
       exec-once = [
       "waybar"
     ];
+
+      general = {
+        layout = "dwindle";
+        gaps_in = 5;
+        gaps_out = 10;
+        border_size = 2;
+      };
+
+      misc = {
+        on_focus_under_fullscreen = 2;
+      };
+
+      dwindle = {
+        preserve_split = true;
+      };
+
 		#  Key Modifiers	
 			"$Mod" = "SUPER";
 		#  standard hyprland window scaling no clue
