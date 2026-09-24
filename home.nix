@@ -1,8 +1,9 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nixvim, ... }:
 
 {
 
 	imports = [
+    nixvim.homeModules.nixvim
 		./neovim.nix
 	];
 #  Home-Manager stuff
@@ -75,7 +76,7 @@
 		};
 		systemd = {
 			enable = true;
-			target = "hyprland-session.target";
+			targets = [ "hyprland-session.targets" ];
 		};
 		
 	};
@@ -85,33 +86,6 @@
 		[Main View]
 		HiddenFiles=true
 	'';
-programs.nixvim = {
-    enable = true;
-    defaultEditor = true;
-
-    # KATEGORIE A: Offiziell unterstützte Plugins (Einfache Aktivierung)
-    plugins = {
-      # 1. Dateibaum
-      neo-tree.enable = true;
-
-      # 2. Syntax Highlighting (Treesitter)
-      treesitter.enable = true;
-
-      # 3. Fuzzy Finder (Telescope)
-      telescope = {
-        enable = true;
-        keymaps = {
-          "<space>ff" = "find_files";
-          "<space>fg" = "live_grep";
-        };
-      };
-
-      # 4. Git-Integration
-      gitsigns.enable = true;
-    };
-
-  };
-
 
 	home.packages = with pkgs; [ 
 		htop

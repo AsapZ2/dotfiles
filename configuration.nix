@@ -3,15 +3,13 @@
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
 { config, lib, pkgs, ... }:
-
 {
-
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix	
       ./greetd.nix
     ];
-# Home Manager
+  # Home Manager
  	 home-manager.useUserPackages = true;
  	 home-manager.useGlobalPkgs = true;
  	 home-manager.backupFileExtension = "backup";
@@ -20,7 +18,7 @@
 #  flakes
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 # Greetd & ReGreet
-	programs.regreet = {
+	services.displayManager.regreet = {
 		enable = true;
 		theme.name = "Adwaita";
 		font = {
