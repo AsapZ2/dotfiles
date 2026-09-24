@@ -14,6 +14,27 @@
       smartindent = true;
     };
 
+    globals.mapleader = ",";
+
+    keymaps = [
+      {
+          mode = "v";
+          key = "<leader>y";
+          action = "\"+y";
+          options = {
+              desc = "Yank selection to system clipboard";
+            };
+        }
+      {
+          mode = "n";
+          key = "<leader>p";
+          action = "\"+p";
+          options = {
+              desc = "Paste from system clipboard";
+            };
+        } 
+    ];
+
     plugins = {
       treesitter.enable = true;
       lualine.enable = true;
