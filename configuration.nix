@@ -122,7 +122,7 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
+  programs.ssh.startAgent = true;
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
