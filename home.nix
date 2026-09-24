@@ -7,6 +7,7 @@
 		./neovim.nix
     ./waybar.nix
     ./hyprland.nix
+    ./dolphin.nix
     
 	];
 #  Home-Manager stuff
@@ -14,13 +15,6 @@
 	home.homeDirectory = "/home/asapz";
 	
 	home.stateVersion = "26.05";
-	
-
-#  dolphin
-	home.file."${config.xdg.configHome}/dolphinrc".text = ''
-		[Main View]
-		HiddenFiles=true
-	'';
 
 	home.packages = with pkgs; [ 
 		htop
