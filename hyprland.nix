@@ -5,7 +5,12 @@
 	wayland.windowManager.hyprland = {
 		enable = true;
 		configType = "hyprlang";
-		settings = {	
+		settings = {
+
+    #  Start Waybar
+      exec-once = [
+      "waybar"
+    ];
 		#  Key Modifiers	
 			"$Mod" = "SUPER";
 		#  standard hyprland window scaling no clue
