@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+
+	imports = [
+		./neovim.nix
+	];
 #  Home-Manager stuff
 	home.username = "asapz";
 	home.homeDirectory = "/home/asapz";
@@ -81,8 +85,7 @@
 		[Main View]
 		HiddenFiles=true
 	'';
-# neovim
-	programs.nixvim = {
+programs.nixvim = {
     enable = true;
     defaultEditor = true;
 
@@ -107,22 +110,8 @@
       gitsigns.enable = true;
     };
 
-    # KATEGORIE B: Jedes andere Plugin aus Nixpkgs hinzufügen (ohne eigene Nixvim-Optionen)
-    # Diese werden in den runtimepath (pack/*/start) injiziert
-    extraPlugins = with pkgs.vimPlugins; [
-   
-    
-    ];
-
-    # KATEGORIE C: Plugins direkt von GitHub laden (völlig unabhängig von Nixpkgs)
-    # Nützlich, wenn ein Plugin brandneu oder nicht in Nixpkgs verfügbar ist
-
-    # Globaler Lua-Code (falls Sie noch traditionelle Konfigurationen beipacken wollen)
-    extraConfigLua = ''
-    
-    '';
   };
-};
+
 
 	home.packages = with pkgs; [ 
 		htop
