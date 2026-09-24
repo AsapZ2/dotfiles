@@ -116,16 +116,13 @@
 
     # KATEGORIE C: Plugins direkt von GitHub laden (völlig unabhängig von Nixpkgs)
     # Nützlich, wenn ein Plugin brandneu oder nicht in Nixpkgs verfügbar ist
-    extraPlugins = [
-   
-    ];
 
     # Globaler Lua-Code (falls Sie noch traditionelle Konfigurationen beipacken wollen)
     extraConfigLua = ''
     
     '';
   };
-}
+};
 
 	home.packages = with pkgs; [ 
 		htop
