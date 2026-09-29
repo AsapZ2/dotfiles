@@ -11,8 +11,6 @@
       ./regreet.nix
     ];
   # Home Manager
- 	 home-manager.useUserPackages = true;
- 	 home-manager.useGlobalPkgs = true;
  	 home-manager.backupFileExtension = "backup";
  	 home-manager.users.asapz = import ./home.nix;
 
@@ -21,6 +19,9 @@
 
 # Hyprland
 	programs.hyprland.enable = true;
+
+# Hyprlock PAM service
+  security.pam.services.hyprlock = {};
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -78,15 +79,28 @@
    services.power-profiles-daemon.enable = true;
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
-
+# Bluetooth
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+    settings = {
+        General = {
+            Experimental = true;
+            ControllerMode = "dual";
+          };
+      };
+  };
+  hardware.enableAllFirmware = true;
+  services.blueman.enable = true;
+  
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.asapz = {
      isNormalUser = true;
      description = "asapz";
-     extraGroups = [ "wheel" "networkmanager" "input" ]; # Enable ‘sudo’ for the user.
+     extraGroups = [ "wheel" "networkmanager" "input"  "video" ]; # Enable ‘sudo’ for the user.
      packages = with pkgs; [   ];
    };
-
+  nixpkgs.config.allowUnfree = true;
   programs.firefox.enable = true;
 
   # Garbage Collecting
@@ -96,6 +110,9 @@
 		options = "--delete-older-then +5";
 	};
 
+  
+  services.postgresql.package = pkgs.postgresql;
+
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
@@ -104,6 +121,10 @@
     git
     kdePackages.dolphin
     kdePackages.qtsvg
+    pgadmin4
+    brightnessctl
+    ripgrep
+    fd
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

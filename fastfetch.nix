@@ -7,8 +7,8 @@
     settings = {
       disableLinewrap = true;
       logo = {
-        source = "/home/asapz/Downloads/Clap Cheer GIF.gif";
-        type = "kitty-icat";
+        source = ./esquie.png;
+        type = "kitty";
         width = 32;
         height = 16;
         padding = {
