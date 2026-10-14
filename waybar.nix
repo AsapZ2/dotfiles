@@ -1,4 +1,12 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
+
+let
+  colors = {
+      bg = "rgba(0, 0, 0, 0)";
+      seam = "#EFBF04";
+      text = "#FFFFFF";
+    };
+in
 
 {
     
@@ -8,8 +16,8 @@ programs.waybar = {
 			mainBar = {
 				layer = "top";
 				position = "top";
-				modules-left = [ "hyprland/workspaces" "hyperland/submap" ];
-				modules-center = [ "hyperland/window" "custom/launcher" ];
+				modules-left = [ "hyprland/workspaces" ];
+				modules-center = [ "hyprland/window" "custom/launcher" ];
 				modules-right = [ "bluetooth" "battery" "clock" ];
 
 				"hyprland/workspaces" = {
@@ -24,14 +32,14 @@ programs.waybar = {
       };
 
         "battery" = {
-            states = {
+          bat = "BAT1";
+          states = {
                 warning = 30;
                 critical = 15;
               };
-            format = "{icon} {percentage}%";
-            format-charging = " {percentage}%";
-            format-plugged = " {percentage}%";
-            format-icons = ["" "" "" "" ""];
+            format = " {capacity}%";
+            format-charging = "  {capacity}%";
+            format-plugged = "󰂄 {capacity}%";
           };
 
         "bluetooth" = {
@@ -53,6 +61,13 @@ programs.waybar = {
       font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", sans-serif;
       font-size: 14px;
     }
+    
+    window#waybar {
+        background-color: ${colors.bg};
+        color: ${colors.text};
+
+        border-bottom: 2px dashed ${colors.seam};
+      }
 
     #custom-launcher {
       font-size: 18px;
@@ -60,7 +75,7 @@ programs.waybar = {
     }
 
     #battery {
-      color: #a9b1d6;
+      color: #40D04E;
     }
     '';
 

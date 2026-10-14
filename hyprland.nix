@@ -88,6 +88,7 @@
 
       windowrule = [
         "match:class ^(firefox)$, opaque 0"
+        "match:class ^(vesktop)$, opacity 0.80 0.6"
       ];
 		};
 	};

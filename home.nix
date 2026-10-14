@@ -16,6 +16,7 @@
     ./zen.nix
     ./ytm.nix
     ./cava.nix
+    ./vesktop.nix
 	];
 #  Home-Manager stuff
 	home.username = "asapz";
