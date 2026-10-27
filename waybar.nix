@@ -24,7 +24,16 @@ programs.waybar = {
 					format = "{name}";
 					on-click = "activate";
 				};
-        
+       
+        "hyprland/window" = {
+          format = "{}";
+          separate-outputs = true;
+          rewrite = {
+            "(.*) — Zen Browser" = " Zen";  
+          };
+        };
+      
+
         "custom/launcher" = {
         format = " ";
         on-click = "wofi --show drun";
@@ -43,8 +52,8 @@ programs.waybar = {
           };
 
         "bluetooth" = {
-          format = "{status}";
-          format-disabled = " off";
+          format = " {status}";
+          format-disabled = " off";
           format-connected = "{num_connections}";
           tooltip-formati = "{controller_alias}\t{controller_address}";
           tooltip-format-connected = "{controller_alias}\t{controller_address}\n\n{device_enumerate}";

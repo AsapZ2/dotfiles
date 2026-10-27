@@ -23,7 +23,7 @@
 	home.homeDirectory = "/home/asapz";
 	
 	home.stateVersion = "26.05";
-
+  programs.libreoffice.enable = true;
   programs.bash = {
     enable = true;
     shellAliases = {

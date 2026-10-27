@@ -7,8 +7,9 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix	
-      ./greetd.nix
-      ./regreet.nix
+     #./sddm.nix
+     ./greetd.nix
+     ./regreet.nix
     ];
   # Home Manager
  	 home-manager.backupFileExtension = "backup";
@@ -125,6 +126,7 @@
     brightnessctl
     ripgrep
     fd
+    jetbrains.clion
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

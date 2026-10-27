@@ -78,10 +78,20 @@
 
           servers = {
               nil_ls.enable = true;
-              pyright.enable = true;
               ts_ls.enable = true;
               lua_ls.enable = true;
               clangd.enable = true;
+
+              pylsp = {
+                  enable = true;
+                  settings = {
+                      pylsp = {
+                          plugins = {
+                              include_params = true;
+                            };
+                        };
+                    };
+                };
             };
         };
 

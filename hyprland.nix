@@ -20,6 +20,11 @@
         border_size = 2;
       };
 
+      monitor = [
+        "eDP-1, preferred, auto, 1"
+        "HDMI-A-1, preferred, auto-left, 1"
+      ];
+
       misc = {
         on_focus_under_fullscreen = 2;
       };
@@ -30,8 +35,7 @@
 
 		#  Key Modifiers	
 			"$Mod" = "SUPER";
-		#  standard hyprland window scaling no clue
-			monitor = ", preferred, auto, 1";
+		
 
 			env = [
 				"GDK_SCALE,1"
